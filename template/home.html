@@ -1,0 +1,62 @@
+{%extends 'base.html' %}
+
+{%block title%} welcome to IBlogs {%endblock%}
+
+ {%block content%}
+
+
+
+  <div class="cardcontainer">
+
+     {% for cat in cats %}
+      <div class="card">
+
+
+         <div class="img-container">
+              <img style="height:400px;width:400px" src="/media/{{cat.image}}" class="responsive-img" alt="img">
+         </div>
+          <div class="card-content">
+              <div class="card-title">
+                  {{cart.tittle}}
+              </div>
+               <p class="truncate">{{cat.description}}</p>
+
+                 <div class="container">
+                     <a style="background:#417690" href="" class="btn">VIEW</a> v>
+                 </div>
+          </div>
+      </div>
+      {% endfor %}
+  </div>
+
+                        
+
+<div class="container">
+
+      <div class="row">
+
+            <div class="col s12">
+
+                {%for p in posts %}
+
+                <div class="row">
+
+                   <div class="col s12 m8">
+
+                         <h1>{{p.title}}</h1>
+                         <h6>{{p.content|truncatewords:50| safe}}</h6>
+                         <div style="margin-top:20px">
+                             <a style="background:#417690" href="/blog/{{p.url}}" class="btn">Read More...</a>
+                         </div>
+                   </div>
+                    <div class="col s12 m4" style="margin-top:80px">
+                        <img class="responsive-img" src="/media/{{p.image}}" alt="img">
+                    </div>
+                </div>                                                   
+                {%endfor %}
+            </div>
+       </div>
+</div>
+
+
+{%endblock%}

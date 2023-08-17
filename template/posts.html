@@ -1,0 +1,50 @@
+{%extends 'base.html' %}
+
+{%block title%} Post{%endblock%}
+
+ {%block content%}
+
+
+
+
+<div class="container" id="one">
+
+         <div class="row">
+             <div class="col s12  m10 l10">
+
+                <h3>{{post.title}}</h3>
+
+                <p>{{post.cat.title}}</p>
+
+                 <img clss="responsive-img" src="/media/{{post.image}}" alt="blogimg">
+                 <br>
+
+                 <p>
+                     {{post.content|safe}}
+                 </p>
+             </div>
+             <div class="col s12 m2 l2">
+              {% for cat in cats %}
+                <div class="card">
+                        <div class="img-container">
+                             <img style="height:400px;width:400px" src="/media/{{cat.image}}" class="responsive-img" alt="img">
+                        </div>
+                         <div class="card-content">
+                             <div class="card-title">
+                                 {{cart.title}}
+                             </div>
+                              <p class="truncate">{{cat.description}}</p>
+
+                                <div class="container">
+                                    <a style="background:#417690" href="" class="btn">VIEW</a> v>
+                                </div>
+                         </div>
+                </div>
+              {% endfor %}
+
+             </div>
+         </div>
+  </div>
+
+
+{%endblock%}
